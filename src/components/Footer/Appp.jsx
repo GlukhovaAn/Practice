@@ -1,12 +1,13 @@
 import React from "react";
 import "./Footer.css";
-import watp from "../../assets/ic-whatsapp.svg" 
-import inst from "../../assets/ic-instagram.svg" 
+import watp from "../../assets/ic-whatsapp.svg";
+import inst from "../../assets/ic-instagram.svg";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
+        <h2 className="footer-title">Contacts</h2>
         <div className="footer-row">
           <div className="footer-column">
             <h4 className="footer-heading">Phone</h4>
@@ -15,13 +16,7 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-heading">Socials</h4>
             <div className="footer-socials">
-            <img
-          src={inst}
-          alt="Cart"
-        /> <img
-        src={watp}
-        alt="Cart"
-      />
+              <img src={inst} alt="Cart" /> <img src={watp} alt="Cart" />
             </div>
           </div>
         </div>

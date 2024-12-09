@@ -1,12 +1,13 @@
 import React from "react";
 import "./ProductItem.css";
 
-const ProductItem = ({ image, name, price, oldPrice, discount }) => {
+const ProductItem = ({ image, name, price, oldPrice }) => {
+    const discount = price * 100 / oldPrice -100 
   return (
     <div className="product-item">
       <div className="product-image-wrapper">
-        <img src={image} alt={name} className="product-image" />
-        {discount && <div className="product-discount">-{discount}%</div>}
+        <img src={`http://localhost:3333${image}`} alt={name} className="product-image" />
+        {oldPrice && <div className="product-discount">-{discount}%</div>}
       </div>
       <div className="product-details">
         <p className="product-name">{name}</p>
@@ -18,5 +19,6 @@ const ProductItem = ({ image, name, price, oldPrice, discount }) => {
     </div>
   );
 };
+
 
 export default ProductItem;
