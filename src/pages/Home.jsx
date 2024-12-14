@@ -5,6 +5,7 @@ import "./Home.css";
 import CategoryItem from "../components/CategoryItem/App";
 import { Link } from "react-router-dom";
 import ProductItem from "../components/ProductItem/app";
+import Banner from "../components/Banner/App";
 
 export const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -24,7 +25,7 @@ export const Home = () => {
       try {
         const res = await fetch("http://localhost:3333/products/all");
         const data = await res.json();
-        setSales(data.slice(0, 4));
+        setSales(data.filter((el) => el.discont_price).slice(0, 4));
       } catch (err) {
         console.log(err);
       }
@@ -55,6 +56,7 @@ export const Home = () => {
           })}
         </div>
       </section>
+      <Banner />
       <section className="categories">
         <div div className="categories_title_container">
           <h2 className="categories_title">Sale</h2>

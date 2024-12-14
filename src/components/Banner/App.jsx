@@ -1,31 +1,50 @@
 // Banner.js
 import React from "react";
 import "./Banner.css";
+import img from "../../assets/banar.png";
+import { useForm } from "react-hook-form";
 
-const Banner = () => {
+export const Banner = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    try {
+      const res = fetch("http://localhost:3333/sale/send", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <div className="banner">
+    <section className="banner">
       <h1 className="banner__title">5% off on the first order</h1>
       <div className="banner__content">
-        <div className="banner__icons">
-          <img src="watering-can.png" alt="Watering can" />
-          <img src="plant.png" alt="Plant" />
-          <img src="garden-fork.png" alt="Garden fork" />
-          <img src="scissors.png" alt="Scissors" />
-          <img src="shovel.png" alt="Shovel" />
-        </div>
-        <form className="banner__form">
-          <input type="text" placeholder="Name" className="banner__input" />
+        <img src={img} className="banner__img" />
+        <form className="banner__form" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="Name"
+            className="banner__input"
+            {...register("firstName")}
+          />
           <input
             type="text"
             placeholder="Phone number"
             className="banner__input"
+            {...register("phoneNumber")}
           />
-          <input type="email" placeholder="Email" className="banner__input" />
+          <input
+            type="email"
+            placeholder="Email"
+            className="banner__input"
+            {...register("email")}
+          />
           <button className="banner__button">Get a discount</button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

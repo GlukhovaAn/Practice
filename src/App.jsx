@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Appp";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Categories } from "./pages/Categories";
+import { Products } from "./pages/Products";
 
 const router = createBrowserRouter([
   {
@@ -17,10 +18,18 @@ const router = createBrowserRouter([
     path: "/categories",
     element: <Categories />,
   },
-  // {
-  //   path: "/products/:id",
-  //   element: <Product />,
-  // },
+  {
+    path: "/products",
+    element: <Products />,
+  },
+  {
+    path: "/products/:category",
+    element: <Products />,
+  },
+  {
+    path: "/sales",
+    element: <Products />,
+  },
 ]);
 function App() {
   return <RouterProvider router={router} />;

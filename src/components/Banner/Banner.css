@@ -1,62 +1,60 @@
 .banner {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-  }
-  
-  .banner__title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .banner__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .banner__icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .banner__icons img {
-    height: 50px;
-    width: auto;
-  }
-  
-  .banner__form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 300px;
-    width: 100%;
-  }
-  
-  .banner__input {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .banner__button {
-    padding: 10px;
-    background-color: #fff;
-    color: #4caf50;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .banner__button:hover {
-    background-color: #f0f0f0;
-  }
-  
+  background: linear-gradient(261.47deg, #0b710b 32.63%, #339933 98.96%);
+  color: #fff;
+  padding: 32px;
+  padding-bottom: 0;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.banner__title {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.banner__content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.banner__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 516px;
+  width: 100%;
+  padding-bottom: 32px;
+}
+
+.banner__input {
+  padding: 16px 32px;
+  border: 1px solid #ffffff;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.banner__input::placeholder {
+  color: #ffffff;
+}
+
+.banner__input:focus-visible {
+  outline: none;
+}
+
+.banner__button {
+  padding: 16px 32px;
+  background-color: #fff;
+  color: #282828;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

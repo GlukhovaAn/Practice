@@ -3,9 +3,11 @@ import Footer from "../components/Footer/Appp";
 import Header from "../components/Header/App";
 import "./Home.css";
 import CategoryItem from "../components/CategoryItem/App";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getCategories = async () => {
@@ -30,7 +32,9 @@ export const Categories = () => {
         <div className="categories_container">
           {categories.map((el) => {
             return (
-              <CategoryItem label={el.title} image={el.image} key={el.id} />
+              <Link to={`/products/${el.id}`}>
+                <CategoryItem label={el.title} image={el.image} key={el.id} />
+              </Link>
             );
           })}
         </div>
