@@ -8,6 +8,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Categories } from "./pages/Categories";
 import { Products } from "./pages/Products";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
+import { NotFound } from "./pages/404";
 
 const router = createBrowserRouter([
   {
@@ -30,9 +33,18 @@ const router = createBrowserRouter([
     path: "/sales",
     element: <Products />,
   },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
+
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
 export default App;

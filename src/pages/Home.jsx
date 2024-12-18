@@ -73,6 +73,7 @@ export const Home = () => {
                 key={el.id}
                 price={el.discont_price}
                 oldPrice={el.price}
+                id={el.id}
               />
             );
           })}
