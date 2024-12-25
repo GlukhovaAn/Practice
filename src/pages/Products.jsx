@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer/Appp";
-import Header from "../components/Header/App";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 import "./Home.css";
-import ProductItem from "../components/ProductItem/app";
+import ProductItem from "../components/ProductItem/ProductItem";
 import { useLocation, useParams } from "react-router-dom";
 
 export const Products = () => {
@@ -66,16 +66,7 @@ export const Products = () => {
         </div>
         <div className="categories_container">
           {products.map((el) => {
-            return (
-              <ProductItem
-                name={el.title}
-                image={el.image}
-                key={el.id}
-                price={el.discont_price}
-                oldPrice={el.price}
-                id={el.id}
-              />
-            );
+            return <ProductItem data={el} />;
           })}
         </div>
       </section>

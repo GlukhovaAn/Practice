@@ -1,101 +1,110 @@
 .product-detail {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-title {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .product-price-section {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .current-price {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .original-price {
-    font-size: 1.2rem;
-    text-decoration: line-through;
-    color: #888;
-  }
-  
-  .discount-badge {
-    font-size: 1rem;
-    background-color: #28a745;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .quantity-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .quantity-btn {
-    background-color: #ddd;
-    border: none;
-    padding: 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .quantity-btn:hover {
-    background-color: #ccc;
-  }
-  
-  .quantity-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .add-to-cart-btn {
-    width: 100%;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .add-to-cart-btn:hover {
-    background-color: #218838;
-  }
-  
-  .product-description {
-    margin-top: 20px;
-  }
-  
-  .product-description h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .product-description p {
-    margin-bottom: 10px;
-    line-height: 1.5;
-    color: #555;
-  }
-  
+  max-width: 548px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #282828;
+}
+
+.product-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.product-price-section {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.current-price {
+  font-size: 64px;
+  font-weight: 700;
+  color: #282828;
+  margin-right: 32px;
+}
+
+.original-price {
+  font-size: 40px;
+  font-weight: 500;
+  text-decoration: line-through;
+  color: #8b8b8b;
+}
+
+.discount-badge {
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #339933;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
+.quantity-section {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.quantity-btn {
+  background-color: transparent;
+  border: 1px solid #dddddd;
+  width: 58px;
+  height: 58px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quantity-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.add-to-cart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  height: 58px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #218838;
+}
+
+.product-description {
+  margin-top: 32px;
+}
+
+.product-description h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.product-description p {
+  margin-bottom: 16px;
+
+  line-height: 20.8px;
+  color: #282828;
+  text-align: left;
+}

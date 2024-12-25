@@ -1,42 +1,68 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cart: [],
+  cartProducts: [],
 };
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     addProduct: (state, action) => {
-      state.cart = state.cart.push(action.payload);
+      state.cartProducts = state.cartProducts.concat({
+        id: action.payload.id,
+        count: 1,
+        data: action.payload.data,
+      });
     },
+
+    addProductByAmount: (state, action) => {
+      state.cartProducts = state.cartProducts.concat({
+        id: action.payload.id,
+        count: action.payload.count,
+        data: action.payload.data,
+      });
+    },
+
     increment: (state, action) => {
-      return state.cart.map((el) => {
-        if (el.id === action.payload) {
-          return { ...el, count: el.count + 1 };
-        } else {
-          return el;
-        }
-      });
+      const product = state.cartProducts.find(
+        (product) => product.id === action.payload.id
+      );
+
+      if (product) {
+        product.count += 1;
+      }
     },
+
     decrement: (state, action) => {
-      return state.cart.map((el) => {
-        if (el.id === action.payload) {
-          return { ...el, count: el.count - 1 };
+      const productIndex = state.cartProducts.findIndex(
+        (product) => product.id === action.payload.id
+      );
+
+      if (productIndex !== -1) {
+        const product = state.cartProducts[productIndex];
+        if (product.count > 1) {
+          product.count -= 1;
         } else {
-          return el;
+          state.cartProducts.splice(productIndex, 1);
         }
-      });
+      }
     },
+
     removeProduct: (state, action) => {
-      return state.cart.filter((el) => el.id !== action.payload);
+      state.cartProducts = state.cartProducts.filter(
+        (product) => product.id !== action.payload.id
+      );
     },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { addProduct, increment, decrement, removeProduct } =
-  cartSlice.actions;
+export const {
+  addProduct,
+  increment,
+  decrement,
+  removeProduct,
+  addProductByAmount,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

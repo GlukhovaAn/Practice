@@ -1,16 +1,12 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
 import "./App.css";
-import Header from "./components/Header/App";
-import Footer from "./components/Footer/Appp";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Categories } from "./pages/Categories";
 import { Products } from "./pages/Products";
-import { store } from "./store/store";
-import { Provider } from "react-redux";
 import { NotFound } from "./pages/404";
+import { Product } from "./pages/Product";
+import { Cart } from "./pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +26,14 @@ const router = createBrowserRouter([
     element: <Products />,
   },
   {
+    path: "/product/:id",
+    element: <Product />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+  {
     path: "/sales",
     element: <Products />,
   },
@@ -40,11 +44,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer/Appp";
-import Header from "../components/Header/App";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 import "./Home.css";
-import CategoryItem from "../components/CategoryItem/App";
+import CategoryItem from "../components/CategoryItem/CategoryItem";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Categories = () => {

@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer/Appp";
-import Header from "../components/Header/App";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 import "./Home.css";
-import CategoryItem from "../components/CategoryItem/App";
+import CategoryItem from "../components/CategoryItem/CategoryItem";
 import { Link } from "react-router-dom";
-import ProductItem from "../components/ProductItem/app";
-import Banner from "../components/Banner/App";
+import ProductItem from "../components/ProductItem/ProductItem";
+import Banner from "../components/Banner/Banner";
+import { Modal } from "../components/Modal/Modal";
 
 export const Home = () => {
   const [categories, setCategories] = useState([]);
   const [sales, setSales] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -39,7 +41,9 @@ export const Home = () => {
       <Header />
       <section className="intro">
         <h1 className="intro-titl">Amazing Discounts on Garden Products!</h1>
-        <button className="intro-button">Check out</button>
+        <Link to="/cart">
+          <button className="intro-button">Check out</button>
+        </Link>
       </section>
       <section className="categories">
         <div div className="categories_title_container">
@@ -56,7 +60,7 @@ export const Home = () => {
           })}
         </div>
       </section>
-      <Banner />
+      <Banner setIsModalOpen={setIsModalOpen} />
       <section className="categories">
         <div div className="categories_title_container">
           <h2 className="categories_title">Sale</h2>
@@ -66,20 +70,19 @@ export const Home = () => {
         </div>
         <div className="categories_container">
           {sales.map((el) => {
-            return (
-              <ProductItem
-                name={el.title}
-                image={el.image}
-                key={el.id}
-                price={el.discont_price}
-                oldPrice={el.price}
-                id={el.id}
-              />
-            );
+            return <ProductItem data={el} />;
           })}
         </div>
       </section>
       <Footer />
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
+          }}
+        />
+      )}
     </>
   );
 };

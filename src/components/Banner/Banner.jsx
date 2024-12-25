@@ -4,7 +4,7 @@ import "./Banner.css";
 import img from "../../assets/banar.png";
 import { useForm } from "react-hook-form";
 
-export const Banner = () => {
+export const Banner = ({ setIsModalOpen }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     try {
@@ -12,6 +12,9 @@ export const Banner = () => {
         method: "POST",
         body: JSON.stringify(data),
       });
+      if (res) {
+        setIsModalOpen(true);
+      }
     } catch (err) {
       console.log(err);
     }
