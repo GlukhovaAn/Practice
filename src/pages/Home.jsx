@@ -55,7 +55,9 @@ export const Home = () => {
         <div className="categories_container">
           {categories.map((el) => {
             return (
-              <CategoryItem label={el.title} image={el.image} key={el.id} />
+              <Link to={`/products/${el.id}`}>
+                 <CategoryItem label={el.title} image={el.image} key={el.id} />
+              </Link>
             );
           })}
         </div>
